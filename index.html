@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Exercícios</title>
+    
+    <style>
+        /* Reset básico para padronizar o visual */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #bdc3c7;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        main h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        /* Estilo da Grid de Exercícios */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Estilo dos Cartões (Cards) */
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #2980b9;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .card a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .card a:hover {
+            background-color: #2980b9;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            background-color: #e8f4f8;
+            color: #2980b9;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Meu Portfólio 🚀</h1>
+            <p>Bem-vindo! Aqui você encontra todos os meus exercícios feitos em sala de aula.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Meus Trabalhos</h2>
+        <div id="grid-exercicios" class="grid"></div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com 💻 e ☕ por [Seu Nome]</p>
+    </footer>
+
+    <script>
+        // Lista de exercícios. Adicione novos exercícios aqui!
+        const meusExercicios = [
+            {
+                titulo: "Calculadora de Notas",
+                materia: "Lógica de Programação",
+                descricao: "Um programa simples feito em JavaScript para calcular a média de 4 notas.",
+                link: "link_para_o_exercicio.html" // Coloque o link real do seu arquivo aqui
+            },
+            {
+                titulo: "Página de Receita",
+                materia: "HTML e CSS",
+                descricao: "Minha primeira página web estruturando uma receita de bolo de cenoura.",
+                link: "link_para_o_exercicio.html"
+            },
+            {
+                titulo: "Jogo da Forca",
+                materia: "JavaScript Avançado",
+                descricao: "Um joguinho de adivinhar palavras feito na aula de sexta-feira.",
+                link: "link_para_o_exercicio.html"
+            }
+        ];
+
+        // Função para renderizar (mostrar) os exercícios na tela
+        function carregarExercicios() {
+            const grid = document.getElementById('grid-exercicios');
+
+            // Limpa a grid caso já tenha algo
+            grid.innerHTML = '';
+
+            // Passa por cada exercício da lista e cria um "cartão" para ele
+            meusExercicios.forEach(exercicio => {
+                const cartao = document.createElement('div');
+                cartao.classList.add('card');
+
+                cartao.innerHTML = `
+                    <span class="tag">${exercicio.materia}</span>
+                    <h3>${exercicio.titulo}</h3>
+                    <p>${exercicio.descricao}</p>
+                    <a href="${exercicio.link}" target="_blank">Ver Exercício</a>
+                `;
+
+                grid.appendChild(cartao);
+            });
+        }
+
+        // Roda a função assim que a página carrega
+        carregarExercicios();
+    </script>
+</body>
+</html>
